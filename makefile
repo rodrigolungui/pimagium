@@ -1,5 +1,9 @@
-run:
-	python app/pimagium.py
+VENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
+
+start:
+	source $(VENV_WRAPPER); \
+	workon pimagium; python app/pimagium.py
 
 install:
-	pip install -r requirements.txt
+	source $(VENV_WRAPPER); \
+	mkvirtualenv -p /usr/local/bin/python3 pimagium -r requirements.txt
